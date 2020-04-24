@@ -372,6 +372,8 @@
   - name: Enable opensuse repo
     command: sudo zypper addrepo https://download.opensuse.org/repositories/server:/monitoring/SLE_12_SP5/server:monitoring.repo
   - name: Install exporter
-    command: sudo zypper install prometheus-ha_cluster_exporter
+    zypper:
+      name: prometheus-ha_cluster_exporter
+      state: present
   - name: Start exporter
     command: sudo systemctl --now enable prometheus-ha_cluster_exporter
