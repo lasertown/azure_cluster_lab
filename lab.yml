@@ -370,7 +370,7 @@
   become: yes
   tasks:
   - name: Enable opensuse repo
-    command: sudo zypper addrepo https://download.opensuse.org/repositories/server:/monitoring/SLE_12_SP5/server:monitoring.repo
+    command: sudo zypper addrepo -G https://download.opensuse.org/repositories/server:/monitoring/SLE_12_SP5/server:monitoring.repo
     args:  
       creates: /etc/zypp/repos.d/server_monitoring.repo
   - name: Install exporter
