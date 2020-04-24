@@ -23,6 +23,7 @@
         alias bastion='ssh -i ~/.ssh/lab_rsa azureadmin@`cat bastion.ip`'
         alias tunnel-0='ssh -L 8080:10.0.0.6:9664 -i ~/.ssh/lab_rsa azureadmin@`cat bastion.ip`'
         alias tunnel-1='ssh -L 8080:10.0.0.7:9664 -i ~/.ssh/lab_rsa azureadmin@`cat bastion.ip`'
+
 - name: Push SSH key to bastion
   hosts: bastion
   remote_user: azureadmin
