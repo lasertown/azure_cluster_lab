@@ -320,7 +320,7 @@
     zypper:
       name: drbd-utils
       state: present
-  - name:
+  - name: Create LVM configurations
     script: nfs.config/nfs.lvm.config.py
     args:
       executable: python
