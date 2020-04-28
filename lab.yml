@@ -163,13 +163,11 @@
       executable: python
       creates: /etc/delete.to.retry.nfs.sbd.config.py
   - name: Create the softdog configuration file
-    command: echo softdog | sudo tee /etc/modules-load.d/softdog.conf
-    args:
-      creates: /etc/modules-load.d/softdog.conf
+    copy:
+      src: nfs.config/nfs.softdog.config
+      dest: /etc/modules-load.d/softdog.conf   
   - name: Load softdog module
     command: sudo modprobe -v softdog
-    args:
-      creates: /etc/modules-load.d/softdog.conf
   - name: Zypper update
     command: sudo zypper up -y --skip-interactive
   - name: Install socat
