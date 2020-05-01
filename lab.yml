@@ -204,6 +204,8 @@
     zypper:
       name: fence-agents
       state: present
+  - name: Enable sbd
+    command: sudo systemctl enable sbd
 
 - name: Configure NFS node0
   hosts: nfs-node0
