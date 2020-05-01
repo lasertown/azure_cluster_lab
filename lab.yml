@@ -375,7 +375,7 @@
     zypper:
       name: prometheus-ha_cluster_exporter
       state: present
-  - name: Start exporter
+  - name: Enable exporter
     command: sudo systemctl --now enable prometheus-ha_cluster_exporter
   - name: Start exporter
     command: sudo systemctl start prometheus-ha_cluster_exporter
