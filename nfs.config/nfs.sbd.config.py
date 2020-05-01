@@ -20,8 +20,6 @@ f = open("/etc/sysconfig/sbd", "r")
 for i in (f.read().splitlines()):
   if "SBD_DEVICE=" in i:
     e.write("SBD_DEVICE=" + "\"" + ";".join(c) + "\"" + "\n")
-  elif "SBD_DELAY_START=" in i:
-    e.write("SBD_DELAY_START=yes" + "\n")
   else:
     e.write(i + "\n")
 e.close()
