@@ -138,9 +138,7 @@
       name: iscsi
       enabled: yes
   - name: Enable sbd
-    service:
-      name: sbd
-      enabled: yes
+    command: sudo systemctl enable sbd
   - name: Change initiator name
     copy:
       src: nfs.config/{{ initiator_config }}
@@ -206,10 +204,6 @@
     zypper:
       name: fence-agents
       state: present
-  - name: Enable sbd
-    service:
-      name: sbd
-      enabled: yes
 
 - name: Configure NFS node0
   hosts: nfs-node0
