@@ -59,10 +59,10 @@ resource "azurerm_linux_virtual_machine" "nfs-0" {
     }
 
     source_image_reference {
-        publisher = "SUSE"
-        offer     = "sles-sap-12-sp5"
-        sku       = "gen2"
-        version   = "latest"
+        publisher = var.publisher
+        offer     = var.offer
+        sku       = var.sku
+        version   = var.version
     }
 
     computer_name  = "nfs-0"
@@ -121,10 +121,10 @@ resource "azurerm_linux_virtual_machine" "nfs-1" {
     }
 
     source_image_reference {
-        publisher = "SUSE"
-        offer     = "sles-sap-12-sp5"
-        sku       = "gen2"
-        version   = "latest"
+        publisher = var.publisher
+        offer     = var.offer
+        sku       = var.sku
+        version   = var.version
     }
 
     computer_name  = "nfs-1"
