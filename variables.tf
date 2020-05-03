@@ -10,12 +10,12 @@ variable "region" {
 # publisher = "SUSE"
 # offer     = "sles-sap-12-sp5"
 # sku       = "gen2"
-# version   = "latest"
+# Version   = "latest"
 ################################
 # publisher = "SUSE"
 # offer     = "SLES-SAP"
 # sku       = "12-sp4-gen2"
-# version   = "latest"
+# Version   = "latest"
 ################################
 variable "publisher" {
   description = "Publisher of the image used to create VM"
@@ -26,6 +26,6 @@ variable "offer" {
 variable "sku" {
   description = "SKU of the image used to create VM"
 }
-variable "version" {
+variable "Version" {
   description = "Version of the image used to create VM"
 }
