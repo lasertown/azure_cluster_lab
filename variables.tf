@@ -10,12 +10,12 @@ variable "region" {
 # publisher = "SUSE"
 # offer     = "sles-sap-12-sp5"
 # sku       = "gen2"
-# Version   = "latest"
+# _version   = "latest"
 ################################
 # publisher = "SUSE"
 # offer     = "SLES-SAP"
 # sku       = "12-sp4-gen2"
-# Version   = "latest"
+# _version   = "latest"
 ################################
 variable "publisher" {
   description = "Publisher of the image used to create VM"
@@ -26,6 +26,6 @@ variable "offer" {
 variable "sku" {
   description = "SKU of the image used to create VM"
 }
-variable "Version" {
-  description = "Version of the image used to create VM"
+variable "_version" {
+  description = "Version of the image used to create VM, underscore added to avoid Terraform error"
 }
