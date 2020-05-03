@@ -26,6 +26,6 @@ variable "offer" {
 variable "sku" {
   description = "SKU of the image used to create VM"
 }
-variable "Version" {
+variable "version" {
   description = "Version of the image used to create VM"
 }
