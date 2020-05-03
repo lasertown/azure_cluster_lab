@@ -62,7 +62,7 @@ resource "azurerm_linux_virtual_machine" "nfs-0" {
         publisher = var.publisher
         offer     = var.offer
         sku       = var.sku
-        version   = var.Version
+        version   = var._version
     }
 
     computer_name  = "nfs-0"
@@ -124,7 +124,7 @@ resource "azurerm_linux_virtual_machine" "nfs-1" {
         publisher = var.publisher
         offer     = var.offer
         sku       = var.sku
-        version   = var.Version
+        version   = var._version
     }
 
     computer_name  = "nfs-1"
