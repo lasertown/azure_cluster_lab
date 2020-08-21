@@ -20,9 +20,9 @@
       path: ~/.bashrc
       state: present
       block: |
-        alias bastion='ssh -i ~/.ssh/lab_rsa azureadmin@`terraform bastion_ip`'
-        alias tunnel-0='ssh -L 8080:10.0.0.6:9664 -i ~/.ssh/lab_rsa azureadmin@`terraform bastion_ip`'
-        alias tunnel-1='ssh -L 8080:10.0.0.7:9664 -i ~/.ssh/lab_rsa azureadmin@`terraform bastion_ip`'
+        alias bastion='ssh -i ~/.ssh/lab_rsa azureadmin@`terraform output bastion_ip`'
+        alias tunnel-0='ssh -L 8080:10.0.0.6:9664 -i ~/.ssh/lab_rsa azureadmin@`terraform output bastion_ip`'
+        alias tunnel-1='ssh -L 8080:10.0.0.7:9664 -i ~/.ssh/lab_rsa azureadmin@`terraform output bastion_ip`'
   - name: Terraform refresh
     shell: terraform refresh ; . ~/.bashrc
 
