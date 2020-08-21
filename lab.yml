@@ -236,6 +236,7 @@
         '/etc/corosync/authkey already exists - overwrite (y/n)?': 'y'        
         '/etc/pacemaker/authkey already exists - overwrite (y/n)?': 'y'
         'SBD is already configured to use': 'n'
+      timeout: 300
   - name: Update corosync config
     copy:
       src: nfs.config/nfs.corosync.config
