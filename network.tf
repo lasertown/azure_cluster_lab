@@ -29,7 +29,7 @@ resource "azurerm_network_security_group" "ssh" {
 
     security_rule {
         name                       = "SSH"
-        priority                   = 100
+        priority                   = 101
         direction                  = "Inbound"
         access                     = "Allow"
         protocol                   = "Tcp"
