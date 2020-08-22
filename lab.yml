@@ -267,22 +267,13 @@
         '  IP address or hostname of existing node': '10.0.0.6'
         '/root/.ssh/id_rsa already exists - overwrite (y/n)?': 'n'
         '  Address for ring0': ''
+      timeout: 300
   - name: Update corosync config
     copy:
       src: nfs.config/nfs.corosync.config
       dest: /etc/corosync/corosync.conf
   - name: Restart corosync
     command: sudo service corosync restart
-
-- name: Configure NFS nodes
-  hosts: nfs
-  remote_user: azureadmin
-  become: yes
-  tasks:
-  - name: Enable sbd
-    command: systemctl enable sbd
-  - name: Restart pacemaker
-    command: systemctl restart pacemaker 
 
 - name: Configure NFS node0
   hosts: nfs-node0
