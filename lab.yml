@@ -239,7 +239,7 @@
       timeout: 300
   - name: Update corosync config
     copy:
-      src: nfs.config/nfs.corosync.config
+      src: node.config/node.corosync.config
       dest: /etc/corosync/corosync.conf
   - name: Restart corosync
     command: sudo service corosync restart
