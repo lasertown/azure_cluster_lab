@@ -67,12 +67,6 @@ resource "azurerm_linux_virtual_machine" "bastion" {
     }
 }
 
-resource "local_file" "bastion" {
-    content  = azurerm_public_ip.bastion.ip_address
-    filename = "${path.module}/bastion.ip"
-    depends_on = [azurerm_public_ip.bastion]
-}
-
 output "bastion_ip" {
   value = azurerm_public_ip.bastion.ip_address
 }
