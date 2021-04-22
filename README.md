@@ -1,4 +1,29 @@
-# Requires the latest Terraform and Ansible
+# Installation
+## Requires the latest Terraform and Ansible
 Azure Cloudshell has both Terraform and Ansible preinstalled, so cloning and launching from Cloudshell is convienent.
-# Clone the repository and run this command from root of project folder:
+## Installation in your local Linux environment 
+Cloudshell in the Portal times out after 20 minutes, so installing in your local environment or Linux VM is a good option.  If you use Cloudshell, you will have to hit the keyboard every now and then to prevent a timeout.
+### Links to install requirements
+- az CLI
+    1. https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
+- Terraform
+    1. https://learn.hashicorp.com/tutorials/terraform/install-cli
+- Ansible    
+    1. https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-specific-operating-systems
+
+# Run the playbook
+### Clone the repository and run this command from root of project folder:
 $ ansible-playbook -i hosts lab.yml
+
+The resources will be created in a resource group specified in the root of the repo's main.tf.
+
+# Deleting the environment
+### The cluster can be deprovisioned by running:
+
+$ terraform delete
+
+You can also simply delete the resource group the cluster is in.  If you manually delete the resource group, terraform will leave behind the files:
+1. terraform.tfstate
+1. terraform.tfstate.backup
+
+Delete the tfstate files and you ready to spin up another cluster.  If you do not want to wait for the previous resource group to be deleted, you can create a new resource group name in main.tf, and the new resources will be spun up in the new resource group.
