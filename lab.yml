@@ -32,6 +32,11 @@
   remote_user: azureadmin
   become: yes
   tasks:
+  - name: Set authorized key taken from file
+  authorized_key:
+    user: azureadmin
+    state: present
+    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
   - name: Push SSH azureadmin private key
     copy:
       src: ~/.ssh/lab_rsa
