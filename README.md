@@ -12,7 +12,12 @@ Cloudshell in the Portal times out after 20 minutes, so installing in your local
     1. https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-specific-operating-systems
 
 # Run the playbook
+### Login az CLI:
+
+$ az login
+
 ### Clone the repository and run this command from root of project folder:
+
 $ ansible-playbook -i hosts lab.yml
 
 The resources will be created in a resource group specified in the root of the repo's main.tf.
