@@ -42,3 +42,8 @@ You can find the bastion's public IP by looking in the Portal or running 'terraf
 
 $ terraform output  
 bastion_ip = "40.65.106.174" (example IP)
+
+### To login to the bastion
+ssh azureadmin@40.65.106.174  
+### To login to NFS node from bastion
+azureadmin@bastion:~> ssh nfs-0
