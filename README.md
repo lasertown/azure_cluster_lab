@@ -32,3 +32,13 @@ You can also simply delete the resource group the cluster is in.  If you manuall
 1. terraform.tfstate.backup
 
 Delete the tfstate files and you ready to spin up another cluster.  If you do not want to wait for the previous resource group to be deleted, you can create a new resource group name in main.tf, and the new resources will be spun up in the new resource group.
+
+# Tips
+
+### SSH Keys
+If you do not already have SSH keys setup in your home directory, they will be created for you.  2 sets of keys will be created, a personal set and a lab set.  The personal public key will be added to the bastion node.  The username you should login with is 'azureadmin'.  If you already have personal SSH keys setup, you can login with your existing keys with the 'azureadmin' user.  Once you have logged into the bastion, you can SSH to the NFS nodes as the lab keys will have been installed on both the bastion and the NFS nodes.
+
+You can find the bastion's public IP by looking in the Portal or running 'terraform output' from the CLI:
+
+$ terraform output  
+bastion_ip = "40.65.106.174" (example IP)
