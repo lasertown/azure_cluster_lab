@@ -2,7 +2,7 @@
   hosts: localhost
   connection: local
   tasks:
-  - name: Generate Personal SSH keys if they do not already exist
+  - name: Generate personal SSH keys if they do not already exist
     openssh_keypair:
       path: ~/.ssh/id_rsa
       force: False
@@ -36,7 +36,7 @@
   remote_user: azureadmin
   become: yes
   tasks:
-  - name: Set authorized key taken from file
+  - name: Set personal authorized key taken from file
     authorized_key:
       user: azureadmin
       state: present
