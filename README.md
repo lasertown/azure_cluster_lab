@@ -16,20 +16,20 @@ Cloudshell in the Portal times out after 20 minutes, so installing in your local
 
 # Run the playbook
 ### Login az CLI:
-
+```console
 $ az login
-
+```  
 ### Clone the repository and run this command from root of project folder:
-
+```console
 $ ansible-playbook -i hosts lab.yml
-
+```  
 The resources will be created in a resource group specified in the root of the repo's main.tf.
 
 # Deleting the environment
 ### The cluster can be deprovisioned by running:
-
+```console
 $ terraform delete
-
+```  
 You can also simply delete the resource group the cluster is in.  If you manually delete the resource group, terraform will leave behind the files:
 1. terraform.tfstate
 1. terraform.tfstate.backup
@@ -41,17 +41,35 @@ Delete the tfstate files and you ready to spin up another cluster.  If you do no
 ### SSH Keys
 If you do not already have SSH keys setup in your home directory, they will be created for you.  2 sets of keys will be created, a personal set and a lab set.  The personal public key will be added to the bastion node.  The username you should login with is 'azureadmin'.  If you already have personal SSH keys setup, you can login with your existing keys with the 'azureadmin' user.  Once you have logged into the bastion, you can SSH to the NFS nodes as the lab keys will have been installed on both the bastion and the NFS nodes.
 
-You can find the bastion's public IP by looking in the Portal or running 'terraform output' from the CLI:
-
+***You can find the bastion's public IP by looking in the Portal or running 'terraform output' from the CLI:***
+```console
 $ terraform output  
-bastion_ip = "40.65.106.174" (example IP)
-
-***To login to the bastion***  
+bastion_ip = "40.65.106.174" #<----example IP
+```  
+***To login to the bastion:***
+```console
 ssh azureadmin@40.65.106.174  
-
-***To login to NFS node from bastion***  
+```  
+***To login to NFS node from bastion:***  
+```console
 azureadmin@bastion:~> ssh nfs-0
-
+```  
+***All nodes are contained in bastion node /etc/hosts:***
+```console
+azureadmin@bastion:~> tail -n 12 /etc/hosts
+# BEGIN ANSIBLE MANAGED BLOCK
+# IP address of the load balancer frontend configuration for NFS
+10.0.0.4 nw1-nfs
+10.0.0.5 nw2-nfs
+# NFS cluster nodes
+10.0.0.6 nfs-0
+10.0.0.7 nfs-1
+# SBD nodes
+10.0.0.17 sbd-0
+10.0.0.18 sbd-1
+10.0.0.19 sbd-2
+# END ANSIBLE MANAGED BLOCK
+```  
 ### Mounting an NFS share  
 ```console
 azureadmin@bastion:~> sudo mount -o nfsvers=4 10.0.0.4:/NW1 /mnt  
