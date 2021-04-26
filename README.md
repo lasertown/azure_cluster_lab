@@ -46,7 +46,26 @@ You can find the bastion's public IP by looking in the Portal or running 'terraf
 $ terraform output  
 bastion_ip = "40.65.106.174" (example IP)
 
-### To login to the bastion
+***To login to the bastion***  
 ssh azureadmin@40.65.106.174  
-### To login to NFS node from bastion
+
+***To login to NFS node from bastion***  
 azureadmin@bastion:~> ssh nfs-0
+
+### Mounting an NFS share  
+```console
+azureadmin@bastion:~> sudo mount -o nfsvers=4 10.0.0.4:/NW1 /mnt  
+azureadmin@bastion:~> df -h  
+Filesystem      Size  Used Avail Use% Mounted on  
+devtmpfs         16G  8.0K   16G   1% /dev  
+tmpfs            24G     0   24G   0% /dev/shm  
+tmpfs            16G   18M   16G   1% /run  
+tmpfs            16G     0   16G   0% /sys/fs/cgroup  
+/dev/sda4        29G  2.7G   26G  10% /  
+/dev/sda3      1014M   99M  916M  10% /boot  
+/dev/sda2       512M  1.1M  511M   1% /boot/efi  
+10.0.0.4:/NW1   100G   32M  100G   1% /mnt  
+tmpfs           3.2G     0  3.2G   0% /run/user/1000  
+tmpfs           3.2G     0  3.2G   0% /run/user/488  
+azureadmin@bastion:~>
+```
