@@ -1,4 +1,4 @@
-![image info](HA_NFS.png)
+![image info](NFS_HA.png)
 # Installation
 ## Requires the latest Terraform and Ansible
 Azure Cloudshell has both Terraform and Ansible preinstalled, so cloning and launching from Cloudshell is convienent.
