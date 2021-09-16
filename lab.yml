@@ -120,6 +120,7 @@
   hosts: sbd
   remote_user: azureadmin
   become: yes
+  tasks:
   - name: Install targetcli-fb
     zypper:
       name: targetcli-fb
