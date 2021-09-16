@@ -373,7 +373,7 @@
   remote_user: azureadmin
   become: yes
   tasks:
-  -name: Install ha_exporter
+  - name: Install ha_exporter
     zypper:
       name: prometheus-ha_cluster_exporter
       state: present
