@@ -396,7 +396,7 @@
       
 - name: Configure prometheus and node_exporter
   hosts: bastion
-  remote_user: azadmin
+  remote_user: azureadmin
   become: yes
   tasks:
   - name: Enable opensuse repo
