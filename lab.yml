@@ -368,7 +368,7 @@
   - name: Disable maintenance mode
     command: sudo crm configure property maintenance-mode=false
     
-- name: Configure NFS nodes
+- name: Configure NFS ha_exporter
   hosts: nfs
   remote_user: azureadmin
   become: yes
@@ -377,3 +377,7 @@
     zypper:
       name: prometheus-ha_cluster_exporter
       state: present
+  - name: Enable prometheus-ha_cluster_exporter
+    service:
+      name: prometheus-ha_cluster_exporter
+      enabled: yes
