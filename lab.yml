@@ -108,13 +108,18 @@
       group: root
       mode: '0644'
 
-- name: Configure SBD VMs
-  hosts: sbd
+- name: Update all VMs
+  hosts: all
   remote_user: azureadmin
   become: yes
   tasks:
   - name: Zypper update
     command: sudo zypper up -y --skip-interactive
+
+- name: Configure SBD VMs
+  hosts: sbd
+  remote_user: azureadmin
+  become: yes
   - name: Install targetcli-fb
     zypper:
       name: targetcli-fb
@@ -178,8 +183,6 @@
       dest: /etc/modules-load.d/softdog.conf   
   - name: Load softdog module
     command: sudo modprobe -v softdog
-  - name: Zypper update
-    command: sudo zypper up -y --skip-interactive
   - name: Install socat
     zypper:
       name: socat
