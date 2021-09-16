@@ -52,7 +52,7 @@ resource "azurerm_linux_virtual_machine" "bastion" {
 
     source_image_reference {
         publisher = "SUSE"
-        offer     = "sles-sap-12-sp5"
+        offer     = "sles-sap-15-sp3"
         sku       = "gen2"
         version   = "latest"
     }
