@@ -415,3 +415,11 @@
       dest: /etc/prometheus/
   - name: Restart prometheus
     command: sudo systemctl restart prometheus
+  - name: Install node_exporter
+    zypper:
+      name: golang-github-prometheus-node_exporter
+      state: present
+  - name: Enable prometheus
+    command: sudo systemctl --now enable prometheus-node_exporter
+  - name: Start prometheus
+    command: sudo systemctl start prometheus-node_exporter
