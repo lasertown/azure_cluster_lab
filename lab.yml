@@ -372,7 +372,7 @@
   - name: Disable maintenance mode
     command: sudo crm configure property maintenance-mode=false
     
-- name: Configure NFS ha_exporterand node_exporter
+- name: Configure NFS ha_exporter and node_exporter
   hosts: nfs
   remote_user: azureadmin
   become: yes
@@ -421,5 +421,9 @@
       state: present
   - name: Enable prometheus
     command: sudo systemctl --now enable prometheus-node_exporter
-  - name: Start prometheus
-    command: sudo systemctl start prometheus-node_exporter
+  - name: Configure prometheus
+    copy:
+      src: config/prometheus-node_exporter
+      dest: /etc/sysconfig/prometheus-node_exporter
+  - name: Restart prometheus
+    command: sudo systemctl restart prometheus-node_exporter
