@@ -6,6 +6,7 @@
     openssh_keypair:
       path: ~/.ssh/id_rsa
       force: False
+      regenerate: fail
   - name: Copy SSH config to localhost
     copy:
       src: ssh.config/ssh.config
