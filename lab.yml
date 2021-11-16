@@ -31,7 +31,10 @@
         ANSIBLE_STDOUT_CALLBACK=debug
   - name: Terraform refresh
     shell: terraform refresh ; . ~/.bashrc
-
+  - name: Pause 1 minute to let VMs boot up
+    pause:
+      minutes: 1
+      
 - name: Push SSH key to bastion
   hosts: bastion
   remote_user: azureadmin
