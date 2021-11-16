@@ -17,18 +17,18 @@ Cloudshell in the Portal times out after 20 minutes, so installing in your local
 # Run the playbook
 ### Login az CLI:
 ```console
-$ az login
+az login
 ```  
 ### Clone the repository and run this command from root of project folder:
 ```console
-$ ansible-playbook -i hosts lab.yml
+ansible-playbook -i hosts lab.yml
 ```  
 The resources will be created in a resource group specified in the root of the repo's main.tf.
 
 # Deleting the environment
 ### The cluster can be deprovisioned by running:
 ```console
-$ terraform delete
+terraform delete
 ```  
 You can also simply delete the resource group the cluster is in.  If you manually delete the resource group, terraform will leave behind the files:
 1. terraform.tfstate
