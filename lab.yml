@@ -6,9 +6,6 @@
     openssh_keypair:
       path: ~/.ssh/id_rsa
       force: False
-  - name: Generate Lab SSH keys
-    openssh_keypair:
-      path: ~/.ssh/lab_rsa
   - name: Copy SSH config to localhost
     copy:
       src: ssh.config/ssh.config
